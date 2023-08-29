@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import videoPokemon from "../../assets/pokemon-video.mp4";
 import logoPokemon from "../../assets/pokemon-logo.png";
-import "./landing.css";
+
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -23,19 +23,19 @@ const Landing = () => {
         <img class="rounded-t-lg" src={logoPokemon} alt="logoPokemon" />
 
         <div class="p-5">
-          <h3 class="mb-4 text-2xl font-normal leading-none tracking-tight text-white md:text-5xl lg:text-6xl dark:text-white">
+          <h3 class="mb-4 text-2xl font-lato leading-none tracking-tight text-white md:text-5xl lg:text-6xl dark:text-white">
             ¡Gotta Catch 'Em all!
           </h3>
 
-          <p class="mb-3 text-2xl font-normal text-white dark:text-gray-400">
+          <p class="mb-3 text-2xl font-lato text-white dark:text-gray-400">
             ¡Discover the fascinating world of pokemon!
             
           </p>
-          <p class="mb-3 text-2xl font-normal text-white dark:text-gray-400">
+          <p class="mb-3 text-2xl font-lato text-white dark:text-gray-400">
             Dive into an adventure with extraordinary creatures, epic battles,
             and unforgettable friendships.
           </p>
-          <p class="mb-3 text-2xl font-normal text-white dark:text-gray-400">
+          <p class="mb-3 text-2xl font-lato text-white dark:text-gray-400">
             Become in a pokemon master exploring all pokemon´s features and
             create your own Pokemons just in one site.
           </p>
