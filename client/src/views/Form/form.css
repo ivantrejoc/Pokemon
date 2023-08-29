@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form {
+  position: absolute;
+  top: 10;
+  left: 0;
+  right: 0; 
+  width: 100vw;
+  height: fit-content; 
+  background: url("../../assets/background2.jpg");
+  background-attachment: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 25%;
+  height: 40%;
+  margin-top: -30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 215, 0, 0.7);
+  border: solid #6495ed 1px;
+  background-position: center;
+  padding: 50px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transition: transform 0.25s ease-out;
+  border-radius: 25px;
+  box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
+  outline: none;
+  object-fit: contain;
+}
+
+.formTitle {
+  display: flex;
+  margin-top: 90px;
+  justify-content: center;
+  font-size: 3em;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1px #f44336;
+  text-shadow: -2px -2px 1px #4c4b4b;
+}
+
+.pokemonStats {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  text-align: left;
+  margin-left: -8px;
+}
+.statsInputs{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  margin-left: -23px;
+}
+
+.labels {
+  text-align: left;
+  font-size: 2em;
+  font-weight: bold;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1px #6495ed;
+  text-shadow: -2px -2px 1px #4c4b4b;
+}
+.largeInput{
+  border-radius: 7px 7px 7px 7px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 5px #808080;
+  width: 250px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.inputs {  
+  border-radius: 7px 7px 7px 7px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 3px #808080;
+  width: 80px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 10px;
+  text-align: center;
+
+}
+
+.errors{
+  display: flex;
+  margin-top: -25px;
+  margin-bottom: 10px;
+  color:#4c4b4b;
+  font-size: small;
+}
+
+.typesContainer {
+  
+  margin-left: -8px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: fit-content;
+}
+
+.typesForm {
+  margin-left: auto;
+  margin-right: auto ;
+  object-fit: contain;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 7px;
+  grid-auto-rows: 30px;
+}
+
+.typeLabel{
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  font-size: large;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1px #6495ed;
+  text-shadow: -2px -2px 1px #4c4b4b;
+}
+
+.checkInputs{
+  box-shadow: inset 0 0 0.5px  #808080;
+}
+.submitButton {
+  display: flex;
+  margin-top: 13px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -25px;
+  height: 40px;
+  width: 150px;
+  padding: 8px 12px;
+  background-color: #f44336;
+  border: solid #f44336 1px;
+  color: #fff;
+  box-shadow: inset 0 0 5px #808080;
+  border-radius: 4px;
+  align-items: center;
+  font-family: helvetica, arial;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #d32f2f;
+}

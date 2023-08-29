@@ -1,0 +1,27 @@
+.navCont {
+  background-color: #f44336;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  padding: 10px;
+  z-index: 999;  
+  display: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navButtons {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  font-family: helvetica, arial;
+  font-weight: bold;
+  text-align: justify;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.navButtons:hover {
+  opacity: 0.8;
+}
