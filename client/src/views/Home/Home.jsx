@@ -2,7 +2,6 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import Loading from "../../components/Loading/Loading";
-import logoPokemon from "../../assets/pokemon-logo.png";
 import Background from "../../assets/background2.jpg";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -80,7 +79,7 @@ const Home = () => {
 
   return (
     <div
-      class="bg-scroll bg-center absolute top-0 bottom-10 left-0 right-0 w-screen h-fit bg-no-repeat"
+      class="bg-scroll bg-center absolute top-0 bottom-20 left-0 right-0 w-screen h-fit bg-no-repeat"
       style={{ backgroundImage: `url(${Background})` }}
     >
       <div class="flex flex-row bg-r-500 justify-between items-center pt-8 mb-5 ml-auto mr-auto">
