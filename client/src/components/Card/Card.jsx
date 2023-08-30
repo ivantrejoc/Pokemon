@@ -14,6 +14,6 @@ const Card = ({id, name, sprites, types}) => {
       
     </div>
   );
-};
+}; //pruebas
 
 export default Card;
