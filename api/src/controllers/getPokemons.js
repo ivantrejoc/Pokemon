@@ -16,7 +16,7 @@ const cleanArray = (arr) => {
       speed: e.speed,
       height: e.height,
       weight: e.weight,
-      types: e.types.map((t) => t.name),
+      types: e.types.map((t) => t.type.name),
     };
   });
   return clean;
@@ -35,7 +35,7 @@ const cleanDbArray = (arr) => {
       speed: e.speed,
       height: e.height,
       weight: e.weight,
-      types: e.dataValues.Types.map((t) => t.name),
+      types: e.Types.map((t) => t.name),
     };
   });
   return clean;
@@ -66,8 +66,9 @@ const getAllPokemons = async () => {
       return response;
     })
   );
-
+  
   const apiPokemons = cleanArray(pokemonDetails);
+  console.log(apiPokemons);
   
   return [...dbPokemons, ...apiPokemons];
 };

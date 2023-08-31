@@ -9,7 +9,7 @@ import {
   SORT_POKEMONS_BY_ATTACK,
   FILTER_POKEMONS_BY_ORIGIN,
   CLEAR_POKEMON_BY_NAME,
-  CLEAR_DETAIL
+  CLEAR_DETAIL,
 } from "./action-types";
 
 const URL = "http://localhost:3001";
@@ -25,7 +25,7 @@ export const getPokemons = () => {
       });
     } catch (error) {
       console.log(error);
-      throw(error);
+      throw error;
     }
   };
 };
@@ -40,7 +40,7 @@ export const getTypes = () => {
         payload: typesData,
       });
     } catch (error) {
-      throw(error);
+      throw error;
     }
   };
 };
@@ -67,7 +67,7 @@ export const getPokemonByName = (name) => {
         `http://localhost:3001/pokemons?name=${name}`
       );
       const pokemon = apiData.data;
-            
+
       return dispatch({
         type: GET_POKEMON_BY_NAME,
         payload: pokemon,

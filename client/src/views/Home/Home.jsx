@@ -13,7 +13,6 @@ import {
   clearPokemonByName,
 } from "../../redux/actions";
 
-import "./home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -169,7 +168,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="paginated">
+      <div className="flex flex-row justify-center">
         <Pagination
           cardsPerPage={cardsPerPage}
           allPokemons={allPokemons.length}

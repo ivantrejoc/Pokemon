@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
-import "./cardsContainer.css";
 import { useSelector } from "react-redux";
 
 const CardsContainer = ({ pokemons }) => {
@@ -9,13 +8,14 @@ const CardsContainer = ({ pokemons }) => {
   const pokemonByName = useSelector((state) => state.pokemonByName);
   const pokemonList = pokemonByName.length > 0 ? pokemonByName : pokemons;
 
+
+
   useEffect(() => {
     if (pokemonList.length > 0) {
       setLoading(false); // Cambia el estado a "false" cuando la información está cargada
     }
   }, [pokemonList]);
-  //OJO TYPES ESTÁN LLEGANDO EN NULL
-  return (
+    return (
     <div class="grid grid-rows-3 grid-flow-col gap-7 ml-auto mr-auto mb-12">
       {loading ? (
         <Loading />

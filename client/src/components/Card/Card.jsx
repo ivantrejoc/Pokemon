@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Card = ({ id, name, sprites, types }) => {
-  return (
+   return (
     <Link to={`/detail/${id}`}>
       <div class="flex flex-col justify-center items-center w-full max-w-sm h-full bg-yellow-300 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-yellow-400 duration-300">
         <img class="p-8 rounded-t-lg w-60 h-60 mb-2 hover" src={sprites} alt={name} />
