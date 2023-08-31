@@ -14,9 +14,9 @@ const CardsContainer = ({ pokemons }) => {
       setLoading(false); // Cambia el estado a "false" cuando la información está cargada
     }
   }, [pokemonList]);
-
+  //OJO TYPES ESTÁN LLEGANDO EN NULL
   return (
-    <div className="container">
+    <div class="grid grid-rows-3 grid-flow-col gap-7 ml-auto mr-auto mb-12">
       {loading ? (
         <Loading />
       ) : (
