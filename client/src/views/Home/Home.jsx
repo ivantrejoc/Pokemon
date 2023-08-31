@@ -1,4 +1,3 @@
-import SearchBar from "../../components/SearchBar/SearchBar";
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import Pagination from "../../components/Pagination/Pagination";
 import Loading from "../../components/Loading/Loading";
@@ -28,14 +27,7 @@ const Home = () => {
     });
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if(loadingState){
-  //     return;
-  //   } else{
-  //     dispatch(getPokemons());
-  //   }
-  // }, [dispatch]);
-
+  
   function handleTypeFilter(e) {
     e.preventDefault();
     dispatch(filterByTypes(e.target.value));
@@ -71,8 +63,8 @@ const Home = () => {
   const currentPokemons = allPokemons.slice(
     indexOfFirstPokemon,
     indexOfLastPokemon
-  );
-
+  )
+ 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -182,6 +174,7 @@ const Home = () => {
           cardsPerPage={cardsPerPage}
           allPokemons={allPokemons.length}
           pagination={pagination}
+          currentPage={currentPage}
         />
       </div>
       <div className="cardsContainer">
