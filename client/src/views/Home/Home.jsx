@@ -176,7 +176,7 @@ const Home = () => {
           currentPage={currentPage}
         />
       </div>
-      <div className="cardsContainer">
+      <div className="ml-10 mr-10">
         {loading ? <Loading /> : <CardsContainer pokemons={currentPokemons} />}
       </div>
     </div>
