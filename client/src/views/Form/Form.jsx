@@ -98,12 +98,149 @@ const Form = () => {
       .catch((err) => alert(err));
   };
 
-  
-
   return (
     <div className="form" id="formulario">
-      <h1 className="formTitle"> ¡Create a Pokemon!</h1>
-      <form className="formContainer" onSubmit={submitHandler}>
+      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="w-full bg-yellow-300 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-800 md:text-2xl dark:text-white">
+              ¡Create a Pokemon!
+            </h1>
+            <form class="space-y-4 md:space-y-6" action="#">
+              <div>
+                <label
+                  for="name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={input.name}
+                  onChange={changeHandler}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Example: Pikachu"
+                  required=""
+                />
+              </div>
+              {errors.name ? (
+                <span className="errors">{errors.name}</span>
+              ) : null}
+              <div>
+                <label
+                  for="sprites"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Sprites
+                </label>
+                <input
+                  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                  aria-describedby="file_input_help"
+                  id="sprites"
+                  type="file"
+                  value={input.sprites}
+                  onChange={changeHandler}
+                />
+                <p
+                  class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+                  id="file_input_help"
+                >
+                  SVG, PNG, JPG or GIF (MAX. 800x400px).
+                </p>
+              </div>
+              {errors.sprites ? (
+                <span className="errors">{errors.sprites}</span>
+              ) : null}
+              <div>
+                <label
+                  for="life"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Life:
+                </label>
+                <input
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  type="number"
+                  name="life"
+                  min="0"
+                  max="100"
+                  value={input.life}
+                  onChange={changeHandler}
+                  placeholder="0"
+                  required=""
+                />
+              </div>
+              {errors.life ? (
+                <span className="errors">{errors.life}</span>
+              ) : null}
+              <div>
+                <label
+                  for="attack"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Attack:
+                </label>
+                <input
+                  type="number"
+                  name="attack"
+                  min="0"
+                  max="100"
+                  value={input.attack}
+                  onChange={changeHandler}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                />
+              </div>
+              {errors.attack ? (
+                <span className="errors">{errors.attack}</span>
+              ) : null}
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input
+                    id="terms"
+                    aria-describedby="terms"
+                    type="checkbox"
+                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                    required=""
+                  />
+                </div>
+                <div class="ml-3 text-sm">
+                  <label
+                    for="terms"
+                    class="font-light text-gray-500 dark:text-gray-300"
+                  >
+                    I accept the{" "}
+                    <a
+                      class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                      href="#"
+                    >
+                      Terms and Conditions
+                    </a>
+                  </label>
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
+                Create an account
+              </button>
+              <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                Already have an account?{" "}
+                <a
+                  href="#"
+                  class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                >
+                  Login here
+                </a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* <form className="formContainer" onSubmit={submitHandler}>
         <div className="pokemonStats">
           <div className="statsInputs">
             <label className="labels">Name:</label>
@@ -463,7 +600,7 @@ const Form = () => {
         ) : (
           <button disabled>¡Create Pokemon!</button>
         )}
-      </form>
+      </form> */}
     </div>
   );
 };

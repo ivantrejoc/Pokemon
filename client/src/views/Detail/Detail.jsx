@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonById, clearDetail } from "../../redux/actions";
 import Background from "../../assets/background2.jpg";
-import "./detail.css";
 
 const Detail = () => {
   const { id } = useParams();
@@ -23,12 +22,6 @@ const Detail = () => {
   }, [dispatch, id]);
 
 
-  // useEffect(() => {
-  //   dispatch(getPokemonById(id))
-  //   return ()=> {
-  //     dispatch(clearDetail());
-  //   }
-  // }, [dispatch]);
 
   const [loading, setLoading] = useState(true); // Estado para controlar si está cargando
   const pokemonDetail = useSelector((state) => state.pokemonById);
