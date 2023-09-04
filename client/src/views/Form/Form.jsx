@@ -5,6 +5,7 @@ import validation from "./validation";
 import { getTypes } from "../../redux/actions";
 import "./form.css";
 import axios from "axios";
+import Background from "../../assets/background2.jpg";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -99,14 +100,18 @@ const Form = () => {
   };
 
   return (
-    <div className="form" id="formulario">
-      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div
+      class="flex flex-col justify-center items-center bg-scroll bg-center absolute top-0 bottom-20 left-0 right-0 w-screen md:h-screen bg-no-repeat"
+      style={{ backgroundImage: `url(${Background})` }}
+      id="formulario"
+    >
+      <div class="flex flex-col mt-40 mb-10 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div class="w-full bg-yellow-300 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-800 md:text-2xl dark:text-white">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8 mb-1">
+            <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-800 md:text-2xl dark:text-white ">
               ¡Create a Pokemon!
             </h1>
-            <form class="space-y-4 md:space-y-6" action="#">
+            <form class="space-y-2 md:space-y-4" action="#">
               <div>
                 <label
                   for="name"
@@ -119,7 +124,7 @@ const Form = () => {
                   name="name"
                   value={input.name}
                   onChange={changeHandler}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Example: Pikachu"
                   required=""
                 />
@@ -129,30 +134,21 @@ const Form = () => {
               ) : null}
               <div>
                 <label
-                  for="sprites"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  for="small_size"
                 >
                   Sprites
                 </label>
                 <input
-                  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                  aria-describedby="file_input_help"
-                  id="sprites"
+                  class="block w-full py-0 mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                  id="small_size"
                   type="file"
-                  value={input.sprites}
-                  onChange={changeHandler}
                 />
-                <p
-                  class="mt-1 text-sm text-gray-500 dark:text-gray-300"
-                  id="file_input_help"
-                >
-                  SVG, PNG, JPG or GIF (MAX. 800x400px).
-                </p>
               </div>
               {errors.sprites ? (
                 <span className="errors">{errors.sprites}</span>
               ) : null}
-              <div>
+              <div class="mb-0">
                 <label
                   for="life"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -160,7 +156,7 @@ const Form = () => {
                   Life:
                 </label>
                 <input
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   type="number"
                   name="life"
                   min="0"
@@ -172,12 +168,14 @@ const Form = () => {
                 />
               </div>
               {errors.life ? (
-                <span className="errors">{errors.life}</span>
+                <span class="mt-0 mb-0 text-gray-800 text-xs">
+                  {errors.life}
+                </span>
               ) : null}
-              <div>
+              <div class="mt-1">
                 <label
                   for="attack"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Attack:
                 </label>
@@ -188,38 +186,123 @@ const Form = () => {
                   max="100"
                   value={input.attack}
                   onChange={changeHandler}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                 />
               </div>
               {errors.attack ? (
-                <span className="errors">{errors.attack}</span>
+                <span class="mt-0 mb-0 text-gray-800 text-xs">
+                  {errors.attack}
+                </span>
               ) : null}
-              <div class="flex items-start">
-                <div class="flex items-center h-5">
-                  <input
-                    id="terms"
-                    aria-describedby="terms"
-                    type="checkbox"
-                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                    required=""
-                  />
-                </div>
-                <div class="ml-3 text-sm">
-                  <label
-                    for="terms"
-                    class="font-light text-gray-500 dark:text-gray-300"
-                  >
-                    I accept the{" "}
-                    <a
-                      class="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                      href="#"
-                    >
-                      Terms and Conditions
-                    </a>
-                  </label>
-                </div>
+              <div class="mt-1">
+                <label
+                  for="defense"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Defense:
+                </label>
+                <input
+                  type="number"
+                  name="defense"
+                  min="0"
+                  max="100"
+                  value={input.defense}
+                  onChange={changeHandler}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                />
               </div>
+              {errors.defense ? (
+                <span class="mt-0 mb-0 text-gray-800 text-xs">
+                  {errors.defense}
+                </span>
+              ) : null}
+
+              <div class="mt-1">
+                <label
+                  for="speed"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Speed:
+                </label>
+                <input
+                  type="number"
+                  name="speed"
+                  min="0"
+                  max="100"
+                  value={input.speed}
+                  onChange={changeHandler}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                />
+              </div>
+              {errors.speed ? (
+                <span class="mt-0 mb-0 text-gray-800 text-xs">
+                  {errors.speed}
+                </span>
+              ) : null}
+
+<div class="mt-1">
+                <label
+                  for="weight"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Weight:
+                </label>
+                <input
+                  type="number"
+                  name="weight"
+                  min="0"
+                  max="100"
+                  value={input.weight}
+                  onChange={changeHandler}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                />
+              </div>
+              {errors.weight ? (
+            <span class="mt-0 mb-0 text-gray-800 text-xs">{errors.weight}</span>
+          ) : null}
+          <div class="mt-1">
+                <label
+                  for="height"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Height:
+                </label>
+                <input
+                  type="number"
+                  name="height"
+                  min="0"
+                  max="100"
+                  value={input.height}
+                  onChange={changeHandler}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                />
+              </div>
+              {errors.height ? (
+            <span class="mt-0 mb-0 text-gray-800 text-xs">{errors.height}</span>
+          ) : null}
+
+<div class="mt-1">    
+<label for="types" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select types</label>
+<select id="types" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 py-1" multiple  required="">
+  <option id="1" value="normal" selected={typeSelectHandler} >normal</option>
+  <option>Canada</option>
+  <option>France</option>
+  <option>Germany</option>
+</select>
+
+</div>
+
+
+
+
+               
+                
+             
               <button
                 type="submit"
                 class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -240,126 +323,7 @@ const Form = () => {
         </div>
       </div>
 
-      {/* <form className="formContainer" onSubmit={submitHandler}>
-        <div className="pokemonStats">
-          <div className="statsInputs">
-            <label className="labels">Name:</label>
-            <input
-              className="largeInput"
-              type="text"
-              name="name"
-              value={input.name}
-              onChange={changeHandler}
-            />
-          </div>
-          {errors.name ? <span className="errors">{errors.name}</span> : null}
-          <div className="statsInputs">
-            <label className="labels">Sprites:</label>
-            <input
-              className="largeInput"
-              type="text"
-              name="sprites"
-              value={input.sprites}
-              onChange={changeHandler}
-            />
-          </div>
-          {errors.sprites ? (
-            <span className="errors">{errors.sprites}</span>
-          ) : null}
-
-          <div className="statsInputs">
-            <label className="labels">Life:</label>
-            <input
-              className="inputs"
-              type="number"
-              name="life"
-              min="0"
-              max="100"
-              value={input.life}
-              onChange={changeHandler}
-            />
-          </div>
-
-          {errors.life ? <span className="errors">{errors.life}</span> : null}
-
-          <div className="statsInputs">
-            <label className="labels">Attack:</label>
-            <input
-              className="inputs"
-              type="number"
-              name="attack"
-              min="0"
-              max="100"
-              value={input.attack}
-              onChange={changeHandler}
-            />
-          </div>
-          {errors.attack ? (
-            <span className="errors">{errors.attack}</span>
-          ) : null}
-
-          <div className="statsInputs">
-            <label className="labels">Defense:</label>
-            <input
-              className="inputs"
-              type="number"
-              name="defense"
-              min="0"
-              max="100"
-              value={input.defense}
-              onChange={changeHandler}
-            />
-          </div>
-          {errors.defense ? (
-            <span className="errors">{errors.defense}</span>
-          ) : null}
-
-          <div className="statsInputs">
-            <label className="labels">Speed:</label>
-            <input
-              className="inputs"
-              type="number"
-              name="speed"
-              min="0"
-              max="100"
-              value={input.speed}
-              onChange={changeHandler}
-            />
-          </div>
-          {errors.speed ? <span className="errors">{errors.speed}</span> : null}
-
-          <div className="statsInputs">
-            <label className="labels">Height:</label>
-            <input
-              className="inputs"
-              type="number"
-              name="height"
-              min="0"
-              max="100"
-              value={input.height}
-              onChange={changeHandler}
-            />
-          </div>
-          {errors.height ? (
-            <span className="errors">{errors.height}</span>
-          ) : null}
-
-          <div className="statsInputs">
-            <label className="labels">Weight:</label>
-            <input
-              className="inputs"
-              type="number"
-              name="weight"
-              min="0"
-              max="100"
-              value={input.weight}
-              onChange={changeHandler}
-            />
-          </div>
-          {errors.weight ? (
-            <span className="errors">{errors.weight}</span>
-          ) : null}
-        </div>
+      {/*
 
         <div className="typesContainer">
           <label className="labels">Types:</label>
