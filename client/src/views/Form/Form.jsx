@@ -105,13 +105,16 @@ const Form = () => {
       style={{ backgroundImage: `url(${Background})` }}
       id="formulario"
     >
-      <div class="flex flex-col mt-12 mb-5 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div class="w-full bg-yellow-300 rounded-lg shadow dark:border md:h-screen md:mt-24 md:mb-12 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div class="flex flex-col mt-24 mb-5 items-center justify-center px-6 py-8 mx-auto md:h-fit lg:py-0">
+        <div class="w-full bg-yellow-300 rounded-lg shadow dark:border md:mt-24 md:mb-12 md:h-fit sm:max-w-sm  xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8 mb-1">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-blue-800 md:text-2xl dark:text-white ">
               ¡Create a Pokemon!
             </h1>
-            <form class="space-y-2 md:space-y-4 max-w-screen-sm md:max-h-full mx-auto" action="#">
+            <form
+              class="space-y-2 md:space-y-4 max-w-screen-sm md:max-h-full mx-auto"
+              action="#"
+            >
               <div>
                 <label
                   for="name"
@@ -130,7 +133,9 @@ const Form = () => {
                 />
               </div>
               {errors.name ? (
-                <span className="errors">{errors.name}</span>
+                <span class="mt-0 mb-0 text-gray-800 text-xs">
+                  {errors.name}
+                </span>
               ) : null}
               <div>
                 <label
@@ -140,165 +145,170 @@ const Form = () => {
                   Sprites
                 </label>
                 <input
-                  class="block w-full py-0 mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                  id="small_size"
-                  type="file"
+                  type="text"
+                  name="sprites"
+                  value={input.sprites}
+                  onChange={changeHandler}
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="https://encrypted-tbn0.gstatic.com/image"
+                  required=""
                 />
               </div>
               {errors.sprites ? (
-                <span className="errors">{errors.sprites}</span>
-              ) : null}
-
-              <div class=" ml-auto mr-auto items-center justify-center grid grid-cols-2">
-              <div class="mb-0 flex-col">
-                <label
-                  for="life"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Life:
-                </label>
-
-                <input
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  type="number"
-                  name="life"
-                  min="0"
-                  max="100"
-                  value={input.life}
-                  onChange={changeHandler}
-                  placeholder="0"
-                  required=""
-                />
-                {errors.life ? (
                 <span class="mt-0 mb-0 text-gray-800 text-xs">
-                  {errors.life}
-                </span>
-              ) : null}
-              </div>
-              
-              <div class="mt-1">
-                <label
-                  for="attack"
-                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Attack:
-                </label>
-                <input
-                  type="number"
-                  name="attack"
-                  min="0"
-                  max="100"
-                  value={input.attack}
-                  onChange={changeHandler}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
-              {errors.attack ? (
-                <span class="mt-0 mb-0 text-gray-800 text-xs">
-                  {errors.attack}
-                </span>
-              ) : null}
-              <div class="mt-1">
-                <label
-                  for="defense"
-                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Defense:
-                </label>
-                <input
-                  type="number"
-                  name="defense"
-                  min="0"
-                  max="100"
-                  value={input.defense}
-                  onChange={changeHandler}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
-              {errors.defense ? (
-                <span class="mt-0 mb-0 text-gray-800 text-xs">
-                  {errors.defense}
+                  {errors.sprites}
                 </span>
               ) : null}
 
-              <div class="mt-1">
-                <label
-                  for="speed"
-                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Speed:
-                </label>
-                <input
-                  type="number"
-                  name="speed"
-                  min="0"
-                  max="100"
-                  value={input.speed}
-                  onChange={changeHandler}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
-              {errors.speed ? (
-                <span class="mt-0 mb-0 text-gray-800 text-xs">
-                  {errors.speed}
-                </span>
-              ) : null}
+              <div class=" ml-auto mr-auto items-center justify-center grid grid-cols-2 gap-4">
+                <div class="mb-2 flex-col">
+                  <label
+                    for="life"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Life:
+                  </label>
 
-              <div class="mt-1">
-                <label
-                  for="weight"
-                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Weight:
-                </label>
-                <input
-                  type="number"
-                  name="weight"
-                  min="0"
-                  max="100"
-                  value={input.weight}
-                  onChange={changeHandler}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
-              {errors.weight ? (
-                <span class="mt-0 mb-0 text-gray-800 text-xs">
-                  {errors.weight}
-                </span>
-              ) : null}
-              <div class="mt-1">
-                <label
-                  for="height"
-                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Height:
-                </label>
-                <input
-                  type="number"
-                  name="height"
-                  min="0"
-                  max="100"
-                  value={input.height}
-                  onChange={changeHandler}
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
-              {errors.height ? (
-                <span class="mt-0 mb-0 text-gray-800 text-xs">
-                  {errors.height}
-                </span>
-              ) : null}
+                  <input
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    type="number"
+                    name="life"
+                    min="0"
+                    max="100"
+                    value={input.life}
+                    onChange={changeHandler}
+                    placeholder="0"
+                    required=""
+                  />
+                  {errors.life ? (
+                    <span class="mt-4 mb-0 text-gray-800 text-xs">
+                      {errors.life}
+                    </span>
+                  ) : null}
+                </div>
 
+                <div class="mb-2 flex-col">
+                  <label
+                    for="attack"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Attack:
+                  </label>
+                  <input
+                    type="number"
+                    name="attack"
+                    min="0"
+                    max="100"
+                    value={input.attack}
+                    onChange={changeHandler}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  />
+                  {errors.attack ? (
+                    <span class="mt-0 mb-0 text-gray-800 text-xs">
+                      {errors.attack}
+                    </span>
+                  ) : null}
+                </div>
 
-                
+                <div class="mb-2 flex-col">
+                  <label
+                    for="defense"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Defense:
+                  </label>
+                  <input
+                    type="number"
+                    name="defense"
+                    min="0"
+                    max="100"
+                    value={input.defense}
+                    onChange={changeHandler}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  />
+                  {errors.defense ? (
+                    <span class="mt-0 mb-0 text-gray-800 text-xs">
+                      {errors.defense}
+                    </span>
+                  ) : null}
+                </div>
+
+                <div class="mb-2 flex-col">
+                  <label
+                    for="speed"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Speed:
+                  </label>
+                  <input
+                    type="number"
+                    name="speed"
+                    min="0"
+                    max="100"
+                    value={input.speed}
+                    onChange={changeHandler}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  />
+                  {errors.speed ? (
+                    <span class="mt-0 mb-0 text-gray-800 text-xs">
+                      {errors.speed}
+                    </span>
+                  ) : null}
+                </div>
+
+                <div class="mb-2 flex-col">
+                  <label
+                    for="weight"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Weight:
+                  </label>
+                  <input
+                    type="number"
+                    name="weight"
+                    min="0"
+                    max="100"
+                    value={input.weight}
+                    onChange={changeHandler}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  />
+                  {errors.weight ? (
+                    <span class="mt-0 mb-0 text-gray-800 text-xs">
+                      {errors.weight}
+                    </span>
+                  ) : null}
+                </div>
+
+                <div class="mb-2 flex-col">
+                  <label
+                    for="height"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Height:
+                  </label>
+                  <input
+                    type="number"
+                    name="height"
+                    min="0"
+                    max="100"
+                    value={input.height}
+                    onChange={changeHandler}
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block mx-w-xs py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  />
+                  {errors.height ? (
+                    <span class="mt-0 mb-0 text-gray-800 text-xs">
+                      {errors.height}
+                    </span>
+                  ) : null}
+                </div>
               </div>
-              
-              <div class="mt-1">
+
+              <div class="mt-1 flex-col">
                 <label
                   for="types"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -567,260 +577,27 @@ const Form = () => {
                 </div>
               </div>
 
-              <button
-                type="submit"
-                class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Create an account
-              </button>
-             
+              {/* {input.name &&
+              input.sprites &&
+              input.attack &&
+              input.defense &&
+              input.height &&
+              input.life &&
+              input.weight &&
+              input.types.length > 0 ? ( */}
+                <button
+                  type="submit"
+                  class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-lato rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-auto mt-auto h-10 "
+                >
+                  ¡Create Pokemon!
+                </button>
+              {/* ) : (
+                <button disabled>¡Create Pokemon!</button>
+              )} */}
             </form>
           </div>
         </div>
       </div>
-
-      {/*
-
-        <div className="typesContainer">
-          <label className="labels">Types:</label>
-          <div className="typesForm">
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="1"
-              value="normal"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="1">
-              normal
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="2"
-              value="fighting"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="2">
-              fighting
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="3"
-              value="flying"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="3">
-              flying
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="4"
-              value="poison"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="4">
-              poison
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="5"
-              value="ground"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="5">
-              ground
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="6"
-              value="rock"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="6">
-              rock
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="7"
-              value="bug"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="7">
-              bug
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="8"
-              value="ghost"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="8">
-              ghost
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="9"
-              value="steel"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="9">
-              steel
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="10"
-              value="fire"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="10">
-              fire
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="11"
-              value="water"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="11">
-              water
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="12"
-              value="grass"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="12">
-              grass
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="13"
-              value="electric"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="13">
-              electric
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="14"
-              value="psychic"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="14">
-              psychic
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="15"
-              value="ice"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="15">
-              ice
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="16"
-              value="dragon"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="16">
-              dragon
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="17"
-              value="dark"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="17">
-              dark
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="18"
-              value="fairy"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="18">
-              fairy
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="19"
-              value="unknown"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="19">
-              unknown
-            </label>
-
-            <input
-              className="checkInputs"
-              type="checkbox"
-              id="20"
-              value="shadow"
-              onClick={typeSelectHandler}
-            />
-            <label className="typeLabel" for="20">
-              shadow
-            </label>
-          </div>
-        </div>
-
-        {input.name &&
-        input.sprites &&
-        input.attack &&
-        input.defense &&
-        input.height &&
-        input.life &&
-        input.weight &&
-        input.types.length > 0 ? (
-          <button type="submit" className="submitButton">
-            ¡Create Pokemon!
-          </button>
-        ) : (
-          <button disabled>¡Create Pokemon!</button>
-        )}
-      </form> */}
     </div>
   );
 };

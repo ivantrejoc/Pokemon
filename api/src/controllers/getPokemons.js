@@ -2,7 +2,6 @@ const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 const db = require("../db");
 
-
 //función que organiza la data de todos los personajes que llega de la api
 const cleanArray = (arr) => {
   const clean = arr.map((e) => {
@@ -22,13 +21,12 @@ const cleanArray = (arr) => {
   return clean;
 };
 
-
 const cleanDbArray = (arr) => {
   const clean = arr.map((e) => {
     return {
       id: e.id,
       name: e.name,
-      sprites: e.sprites, 
+      sprites: e.sprites,
       life: e.life,
       attack: e.attack,
       defense: e.defense,
@@ -54,7 +52,7 @@ const getAllPokemons = async () => {
   });
 
   const dbPokemons = cleanDbArray(createdPokemons);
- 
+
   //buscar api
   const apiRaw = (
     await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=60&offset=0`)
@@ -66,10 +64,9 @@ const getAllPokemons = async () => {
       return response;
     })
   );
-  
+
   const apiPokemons = cleanArray(pokemonDetails);
-  console.log(apiPokemons);
-  
+
   return [...dbPokemons, ...apiPokemons];
 };
 
@@ -113,8 +110,6 @@ const getPokemonsByName = async (name) => {
 
   return [...dbPokemonClean, ...pokemonFiltered];
 };
-
-
 
 module.exports = {
   getPokemonsByName,

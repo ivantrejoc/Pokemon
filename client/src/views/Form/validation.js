@@ -24,42 +24,42 @@ if(input.life ===""){
     errors.life = "Ingresa un número"
 }
 if(! /^(?:100|[1-9][0-9]?|0)$/.test(input.life)){
-    errors.life = "Este campo solo acepta números entre 0 y 100"
+    errors.life = "Ingresa un valor entre 0 y 100"
 }
 
 if(input.attack ===""){
     errors.attack = "Ingresa un número"
 }
 if(! /^(?:100|[1-9][0-9]?|0)$/.test(input.attack)){
-    errors.attack = "Este campo solo acepta números entre 0 y 100"
+    errors.attack = "Ingresa un valor entre 0 y 100"
 }
 
 if(input.defense === ""){
     errors.defense = "Ingresa un número"
 }
 if(! /^(?:100|[1-9][0-9]?|0)$/.test(input.defense)){
-    errors.defense = "Este campo solo acepta números entre 0 y 100"
+    errors.defense = "Ingresa un valor entre 0 y 100"
 }
 
 if(input.speed === ""){
-    errors.speed = "Ingresa un número"
+    errors.speed = "Ingresa un valor entre 0 y 100"
 }
 if(! /^(?:100|[1-9][0-9]?|0)$/.test(input.speed)){
-    errors.speed = "Este campo solo acepta números entre 0 y 100"
+    errors.speed = "Ingresa un valor entre 0 y 100"
 }
 
 if(input.height ===""){
     errors.height = "Ingresa un número"
 }
 if(! /^(?:100|[1-9][0-9]?|0)$/.test(input.height)){
-    errors.height = "Este campo solo acepta números entre 0 y 100"
+    errors.height = "Ingresa un valor entre 0 y 100"
 }
 
 if(input.weight === ""){
     errors.weight = "Ingresa un número"
 }
 if(! /^(?:100|[1-9][0-9]?|0)$/.test(input.weight)){
-    errors.weight = "Este campo solo acepta números entre 0 y 100"
+    errors.weight = "Ingresa un valor entre 0 y 100"
 }
 return errors;
 
