@@ -25,6 +25,7 @@ const SearchBar = (props) => {
 
       dispatch(getPokemonByName(nameTosearch))
         .then(() => {
+          setNameToSearch("");
           setSearching(false);
           setPokemonFound(true);
         })
