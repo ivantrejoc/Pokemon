@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import validation from "./validation";
 import { getTypes } from "../../redux/actions";
-import "./form.css";
 import axios from "axios";
 import Background from "../../assets/background2.jpg";
 
@@ -113,7 +112,7 @@ const Form = () => {
             </h1>
             <form
               class="space-y-2 md:space-y-4 max-w-screen-sm md:max-h-full mx-auto"
-              action="#"
+              onSubmit={submitHandler}
             >
               <div>
                 <label
@@ -577,23 +576,23 @@ const Form = () => {
                 </div>
               </div>
 
-              {/* {input.name &&
+              {input.name &&
               input.sprites &&
               input.attack &&
               input.defense &&
               input.height &&
               input.life &&
               input.weight &&
-              input.types.length > 0 ? ( */}
+              input.types.length > 0 ? (
                 <button
                   type="submit"
-                  class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-lato rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-auto mt-auto h-10 "
+                  class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-lato rounded-lg text-sm px-5 py-2.5 text-center mb-auto mt-auto h-10 items-center justify-center ml-auto mr-auto "
                 >
                   ¡Create Pokemon!
                 </button>
-              {/* ) : (
+              ) : (
                 <button disabled>¡Create Pokemon!</button>
-              )} */}
+              )}
             </form>
           </div>
         </div>
