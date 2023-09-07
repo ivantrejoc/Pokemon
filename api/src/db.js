@@ -1,4 +1,5 @@
 require("dotenv").config();
+require('pg'); //INDISPENSABLE INSTALAR PARA DEPLOYAR BDD
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
