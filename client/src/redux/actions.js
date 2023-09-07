@@ -12,7 +12,7 @@ import {
   CLEAR_DETAIL,
 } from "./action-types";
 
-const URL = "http://localhost:3001";
+const URL = "https://pokemon-hazel-tau.vercel.app"; // url back deployado
 
 export const getPokemons = () => {
   return async (dispatch) => {
