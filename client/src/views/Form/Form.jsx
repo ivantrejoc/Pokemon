@@ -5,6 +5,7 @@ import validation from "./validation";
 import { getTypes } from "../../redux/actions";
 import axios from "axios";
 import Background from "../../assets/background2.jpg";
+import { URL } from "../../redux/actions";
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -89,7 +90,7 @@ const Form = () => {
   const submitHandler = (event) => {
     event.preventDefault(); //PREVIENE ERRORES EXTRAÑOS
     axios
-      .post("http://localhost:3001/pokemons", input)
+      .post(`${URL}/pokemons`, input)
       .then((res) => {
         alert("¡Pokemon creado satisfactoriamente");
         resetForm();
