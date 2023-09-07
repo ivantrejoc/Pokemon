@@ -12,7 +12,7 @@ const Card = ({ id, name, sprites, types }) => {
           </h3>
 
           <div class="flex items-center justify-between">
-            <span class="text-xs font-lato font-semibold text-blue-800 dark:text-white">
+            <span class="w-1/2 text-xs font-lato font-semibold text-blue-800 dark:text-white">
               {types}
             </span>
           </div>
