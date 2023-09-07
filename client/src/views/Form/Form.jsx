@@ -5,7 +5,7 @@ import validation from "./validation";
 import { getTypes } from "../../redux/actions";
 import axios from "axios";
 import Background from "../../assets/background2.jpg";
-import { URL } from "../../redux/actions";
+
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -86,6 +86,9 @@ const Form = () => {
   const navigateHome = () => {
     navigate("/home");
   };
+
+
+  const URL = "https://pokemon-hazel-tau.vercel.app"; // url back deployado
 
   const submitHandler = (event) => {
     event.preventDefault(); //PREVIENE ERRORES EXTRAÑOS
