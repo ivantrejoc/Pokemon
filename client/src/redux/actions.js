@@ -35,7 +35,6 @@ export const getTypes = () => {
     try {
       const types = await axios.get(`${URL}/types`, {});
       const typesData = types.data;
-      console.log(typesData);
       return dispatch({
         type: GET_TYPES,
         payload: typesData,
@@ -64,9 +63,7 @@ export const getPokemonById = (id) => {
 export const getPokemonByName = (name) => {
   return async (dispatch) => {
     try {
-      const apiData = await axios.get(
-        `${URL}/pokemons?name=${name}`
-      );
+      const apiData = await axios.get(`${URL}/pokemons?name=${name}`);
       const pokemon = apiData.data;
 
       return dispatch({
