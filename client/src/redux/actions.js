@@ -48,7 +48,7 @@ export const getTypes = () => {
 export const getPokemonById = (id) => {
   return async (dispatch) => {
     try {
-      const apiData = await axios.get(`${URL}/${id}`);
+      const apiData = await axios.get(`${URL}/pokemons/${id}`);
       const pokemon = apiData.data;
       return dispatch({
         type: GET_POKEMON_BY_ID,
