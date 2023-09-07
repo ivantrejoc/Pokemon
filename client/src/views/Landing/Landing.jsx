@@ -37,7 +37,7 @@ const Landing = () => {
             create your own Pokemons just in one site.
           </p>
           <a
-            href="http://localhost:3000/home"
+            href="https://pokemonivan.vercel.app/home"
             class="inline-flex items-center px-3 py-2 text-sm font-normal font-lato text-center text-white bg-[#ff3f3f] rounded-lg hover:bg-[#d32f2f] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             ¡Let´s go!
