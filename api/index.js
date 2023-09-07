@@ -17,9 +17,9 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./app.js');
-const { conn } = require('./db.js');
-const PORT = 3001;
+const server = require('./src/app.js');
+const { conn } = require('./src/db.js');
+const PORT = process.env.PORT || 3001;
 
 // Syncing all the models at once.
 conn.sync({ alter:true }).then(() => {   //cada vez que sincroniza borra entera la BDD y la crea de nuevo
