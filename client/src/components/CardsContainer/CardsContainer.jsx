@@ -16,7 +16,7 @@ const CardsContainer = ({ pokemons }) => {
     }
   }, [pokemonList]);
     return (
-    <div class="grid grid-rows-3 grid-flow-col gap-7 ml-auto mr-auto mb-12">
+    <div class="grid grid-rows-3 grid-flow-col md:gap-7 ml-auto mr-auto mb-12">
       {loading ? (
         <Loading />
       ) : (
