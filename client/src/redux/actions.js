@@ -35,6 +35,7 @@ export const getTypes = () => {
     try {
       const types = await axios.get(`${URL}/types`, {});
       const typesData = types.data;
+      console.log(typesData);
       return dispatch({
         type: GET_TYPES,
         payload: typesData,
