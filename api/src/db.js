@@ -2,17 +2,38 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_BASE } = process.env;
+//conexión local
+// const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_BASE } = process.env;
+const { DB_DEPLOY } = process.env;
 const PokemonModel = require("./models/Pokemon");
 const TypeModel = require("./models/Type");
 
+//conexión local
+
+// const sequelize = new Sequelize(
+//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_BASE}`,
+//   {
+//     logging: false, // set to console.log to see the raw SQL queries
+//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+//   }
+// );
+
+//conexxión deploy
+
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_BASE}`,
+  DB_DEPLOY,
   {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+     logging: false, // set to console.log to see the raw SQL queries
+     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+     dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false, // Solo para desarrollo local. En producción, configúralo correctamente.
+        },
+      },
   }
 );
+
 // const basename = path.basename(__filename);
 
 // const modelDefiners = [];
