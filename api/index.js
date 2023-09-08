@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 const PORT = process.env.PORT || 3001;
 
 // Syncing all the models at once.
-conn.sync({ alter:true }).then(() => {   //cada vez que sincroniza borra entera la BDD y la crea de nuevo
+conn.sync({ force:true }).then(() => {   //cada vez que sincroniza borra entera la BDD y la crea de nuevo
   server.listen(PORT, () => {
     console.log("Server raised at port: "+ PORT); // eslint-disable-line no-console
   });
